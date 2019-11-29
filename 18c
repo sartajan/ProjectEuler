@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class PE_18_a {
+
+public static void main(String[] args){
+
+	String filename= "Problem18_input.txt";
+	int array[][]=new int[15][15];
+
+	int row1 =0;
+	int col1 =0;
+	int col =0;
+	int row =0;
+	try{
+		
+		Scanner input =new Scanner(new File(filename));
+		for ( row1=0; row1<15; row1++){
+			for ( col1=0; col1<=row1; col1++){
+				array[row1][col1]=input.nextInt();
+				System.out.print(array[row1][col1] + ", ");
+			}System.out.println();
+			col1=0;
+		}
+		
+		System.out.println(array[14][0]);
+		input.close();
+
+		for (row=13; row>=0;row--){
+			for (col=0;col<14;col++){
+		//		Systecol.out.prirowtlrow("row number " +col +" and column rner: "+ row);
+		//		Systecol.out.prirowtlrow("The cell value is: "+array[row][col]);
+			System.out.println(array[row][col]+=Math.max(array[row+1][col], array[row+1][col+1]));
+			} 
+		}
+		System.out.println(array[0][0]);
+	}
+
+	catch(FileNotFoundException ex){
+		System.out.println("Unable to open file '"+filename+"'");
+	}
+	
+}
+}
