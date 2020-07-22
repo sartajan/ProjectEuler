@@ -1,0 +1,65 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.math.BigInteger;
+import java.math.*;
+public class Main
+{
+    
+	public static void main(String[] args) {
+	    int n = 999;
+	    int m = 999;
+	    int pal = 0;
+	    int highpal=0;
+	    boolean status = true;
+	    
+
+	    while (m>100){
+	        pal=n*m;
+	        if (isPalindrome(pal)){
+	            if(pal>highpal){
+	                highpal=pal;
+	            }
+	        }
+	        if (n>100){
+	            n--;
+	        }else {
+	            m--;
+	            n=999;
+	        }
+	    }
+	    System.out.println(highpal);
+
+  }
+  
+  private static boolean isPalindrome(int chk){
+     int[] chkArray= new int[6];
+     int j = 5;
+     int k = 0;
+     boolean stat = false;
+     do{
+         chkArray[j]=chk%10;
+        // System.out.println(chkArray[j]);
+         j--;
+         chk=chk/10;
+     }   while(chk!=0);
+     while (j<5){
+         j++;
+        // System.out.println("checking "+chkArray[j]+ " and "+chkArray[5-k]);
+         if(j!=5-k){
+         if (chkArray[j]!=chkArray[5-k]){
+             stat= false;
+             return stat;
+         }
+         stat= true;
+         }
+         k++;
+     }
+         
+    return stat;
+  }
+}
